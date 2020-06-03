@@ -14,22 +14,22 @@ class Audiomaster{
         Audiomaster();
         void loop();
         uint16_t getAudioLevel();
-
-        float_t filterIn(float_t input);
+        void setBeatLimit(uint16_t limit);
+        uint16_t getBeatLimit();
 
         // FILTER STUFF
+        float_t filterIn(float_t input);
         void flush();
         void init(bool doFlush=true);
-
         void setSamplingTime(float_t ts_, bool doFlush=true) { ts = ts_; init(doFlush); }
         void setCutoffFreqHZ(float_t hz_, bool doFlush=true) { hz = hz_; init(doFlush); }
         void setOrder(ORDER od_, bool doFlush=true)          { od = od_; init(doFlush); }
-
         bool isInErrorState() { return f_err;  }
         bool isInWarnState()  { return f_warn; }
 
     private:
         uint16_t audioLevel;
+        uint16_t beatLimit = 500;
 
         // FILTER STUFF
         float_t ts;

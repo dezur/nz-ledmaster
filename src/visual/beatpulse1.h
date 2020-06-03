@@ -3,25 +3,18 @@
 #include <Arduino.h>
 #include "ledmaster.h"
 
-#define TOP 60
-#define SAMPLES 60
-
 extern Ledmaster ledmaster;
 
 class Beatpulse1{
 
     public:
         Beatpulse1();
-        void doVisual(int n);
+        void doVisual(int n, uint16_t beatLimit);
     private:
-        int
-            sensitivity = 300,
-            valuehe = 0;
-
-        byte
-            color = 0;
-
-        uint32_t timer;
+        uint32_t 
+            timer,
+            timer2,
+            color;
 
 };
 

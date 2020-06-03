@@ -3,7 +3,7 @@
 Audiomaster::Audiomaster(){
     pinMode(AUDIO_INPUT, INPUT);
     ty = TYPE::LOWPASS;
-    hz = 20.0;
+    hz = 150.0;
     ts = 0.001;
     od = IIR::ORDER::OD3;
 
@@ -16,6 +16,14 @@ void Audiomaster::loop(){
 
 uint16_t Audiomaster::getAudioLevel(){
     return audioLevel;
+}
+
+void Audiomaster::setBeatLimit(uint16_t limit){
+    beatLimit = limit;
+}
+
+uint16_t Audiomaster::getBeatLimit(){
+    return beatLimit;
 }
 
 void Audiomaster::init(bool doFlush) {

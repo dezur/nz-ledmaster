@@ -3,16 +3,20 @@
 #include <Arduino.h>
 #include "ledmaster.h"
 
+#define SAMPLES 60
+#define TOP 60
+
 extern Ledmaster ledmaster;
 
-class Vu1 : public Ledmaster{
+class Vu1{
 
     public:
         Vu1();
         void doVisual(int n);
+        uint16_t getMaxLevel();
     private:
         int
-            vol[30],       // Collection of prior volume samples
+            vol[SAMPLES],       // Collection of prior volume samples
             lvl = 10,
             minLvlAvg = 0,      // For dynamic adjustment of graph low & high
             maxLvlAvg = 600,
