@@ -1,7 +1,7 @@
 #include "stream1.h"
 
 void Stream1::doVisual(uint16_t n){
-    if(millis() > timer + 10){
+    if(millis() > timer + 20){
         int value = map(n, 0, 500, 0, 256);
         if (value < 50) value = 0;
 

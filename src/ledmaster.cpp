@@ -46,6 +46,10 @@ uint32_t Ledmaster::Wheel(byte WheelPos) {
   }
 }
 
+uint32_t Ledmaster::Wheel(byte WheelPos, byte brightness) {
+  // TODO
+}
+
 void Ledmaster::sendData(){
     for (int i = 0; i < NUMBER_OF_CLIENTS; i++){
         IPAddress ip(192,168,4,2 + i);
